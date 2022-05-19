@@ -1,0 +1,93 @@
+.sectionBanner {
+   box-sizing: border-box;
+   *{
+      box-sizing: border-box;
+   }
+   font-family: PF DinDisplay Pro, sans-serif;
+   background-size: 50%;
+   .sectionInner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+   }
+   
+   &_firstCol {
+      padding: 150px 0;
+      width: 50%;
+      height: 100%;
+
+      &-subtitle {
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 24px;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: #212129;
+      }
+
+      &-title {
+font-style: normal;
+font-weight: 700;
+font-size: 35px;
+line-height: 50px;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: #212129;
+      }
+
+      &-btn {
+         width: 300px;
+         height: 62px;
+      }
+
+   }
+
+   &_secondCol {
+   background: url(../img/png/bannerBg.png) 50% 50%/cover no-repeat;
+   padding: 150px 0;
+
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .listWrap{
+         background: rgba(40, 40, 48, 0.5);
+         width: 370px;
+         // height: 400px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding: 15px 30px;
+      }
+      &-list {
+         list-style: none;
+         padding: 0;
+         &-item {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 31px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin: 0 0 15px 0;
+            &::before{
+               color: #D62424;
+               content  : '\2022';
+               display  : block;
+               font-size: 25px;
+               margin   : 0 5px 0 0;
+            }
+            &:last-child{
+               margin: 0;
+            }
+         }
+      }
+   }
+}

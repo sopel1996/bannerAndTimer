@@ -1,0 +1,27 @@
+.btn {
+   background-color: #D62424;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #fff;
+   border: none;
+   outline: none;
+   font-style: normal;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 22px;
+   letter-spacing: 0.05em;
+   text-transform: uppercase;
+   &:hover{
+      background-color: darken(#D62424, 10);
+   }
+
+}
+.sectionInner{
+   width: 100%;
+   max-width: 1170px;
+   margin: 0 auto;
+}
+.red{
+   color: #D62424
+}

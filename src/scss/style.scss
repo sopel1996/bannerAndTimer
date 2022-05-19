@@ -1,0 +1,20 @@
+/*
+
+   ПРИМЕР КАК ДЕЛАТЬ WEBP И AVIF ФОНЫ
+
+   .no-webplossy .sectionBanner,
+   .no-avif .sectionBanner {
+      background: transparent url(../img/png/bannerBg.png) 50% 50%/cover no-repeat;
+   }
+   .webplossy .sectionBanner{
+      background: transparent url(../img/webp/bannerBg.webp) 50% 50%/cover no-repeat;
+   }
+   .avif .sectionBanner {
+      background: transparent url(../img/avif/bannerBg.avif) 50% 50%/cover no-repeat;
+   }
+*/
+
+@import 'color.scss';
+@import 'general.scss';
+@import 'sectionBanner.scss';
+@import 'sectionCounter.scss';

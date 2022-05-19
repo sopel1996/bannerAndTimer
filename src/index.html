@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-webplossy no-avif">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/normolize.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <title>prj</title>
+
+    <script>
+      var imageData = {
+        avif: 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=',
+        webp: 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA',
+      };
+  
+      // Функция проверки написана на основе документации Google:
+      // https://developers.google.com/speed/webp/faq#in_your_own_javascript
+  
+      function checkImageFormatSupport(imageFormat, callback) {
+        var img = new Image();
+        
+        img.src = imageData[imageFormat];
+        
+        img.onload = function () { var result = (img.width > 0) && (img.height > 0); callback(result); };
+        img.onerror = function () { callback(false); };
+      }
+  
+      // Проверяем поддержку WebP Lossy (сжатие с потерями)
+      
+      checkImageFormatSupport('webp', function (isWebpLossySupported) {
+        if (isWebpLossySupported) {
+          document.documentElement.className = document.documentElement.className.replace('no-webplossy', 'webplossy');
+        }
+      });
+  
+      // Проверяем поддержку AVIF
+    
+      checkImageFormatSupport('avif', function (isAvifSupported) {
+        if (isAvifSupported) {
+          document.documentElement.className = document.documentElement.className.replace('no-avif', 'avif');
+        }
+      });
+  </script>
+
+  </head>
+  <body>
+
+    <style>
+      @charset "UTF-8";
+
+.btn {
+    background-color : #d62424;
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    -webkit-box-pack : center;
+    -ms-flex-pack    : center;
+    justify-content  : center;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+    color            : #fff;
+    border           : none;
+    outline          : 0;
+    font-style       : normal;
+    font-weight      : 500;
+    font-size        : 18px;
+    line-height      : 22px;
+    letter-spacing   : .05em;
+    text-transform   : uppercase
+}
+
+.btn:hover {
+    background-color: #aa1d1d
+}
+
+.sectionInner {
+    width    : 100%;
+    max-width: 1170px;
+    margin   : 0 auto
+}
+
+.red {
+    color: #d62424
+}
+
+.sectionBanner {
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box;
+    font-family       : PF DinDisplay Pro, sans-serif;
+    background-size   : 50%
+}
+
+.sectionBanner * {
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box
+}
+
+.sectionBanner .sectionInner {
+    display              : -webkit-box;
+    display              : -ms-flexbox;
+    display              : flex;
+    -webkit-box-orient   : horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction   : row;
+    flex-direction       : row;
+    -webkit-box-align    : center;
+    -ms-flex-align       : center;
+    align-items          : center;
+    -webkit-box-pack     : justify;
+    -ms-flex-pack        : justify;
+    justify-content      : space-between
+}
+
+.sectionBanner_firstCol {
+    padding: 150px 0;
+    width  : 50%;
+    height : 100%
+}
+
+.sectionBanner_firstCol-subtitle {
+    font-style    : normal;
+    font-weight   : 700;
+    font-size     : 20px;
+    line-height   : 24px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color         : #212129
+}
+
+.sectionBanner_firstCol-title {
+    font-style    : normal;
+    font-weight   : 700;
+    font-size     : 35px;
+    line-height   : 50px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color         : #212129
+}
+
+.sectionBanner_firstCol-btn {
+    width : 300px;
+    height: 62px
+}
+
+.sectionBanner_secondCol {
+    background       : url(../img/png/bannerBg.png) 50% 50%/cover no-repeat;
+    padding          : 150px 0;
+    width            : 50%;
+    height           : 100%;
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+    -webkit-box-pack : center;
+    -ms-flex-pack    : center;
+    justify-content  : center
+}
+
+.sectionBanner_secondCol .listWrap {
+    background       : rgba(40, 40, 48, .5);
+    width            : 370px;
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+    -webkit-box-pack : center;
+    -ms-flex-pack    : center;
+    justify-content  : center;
+    padding          : 15px 30px
+}
+
+.sectionBanner_secondCol-list {
+    list-style: none;
+    padding   : 0
+}
+
+.sectionBanner_secondCol-list-item {
+    font-style       : normal;
+    font-weight      : 700;
+    font-size        : 20px;
+    line-height      : 31px;
+    letter-spacing   : .05em;
+    text-transform   : uppercase;
+    color            : #fff;
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+    -webkit-box-align: start;
+    -ms-flex-align   : start;
+    align-items      : flex-start;
+    -webkit-box-pack : start;
+    -ms-flex-pack    : start;
+    justify-content  : flex-start;
+    margin           : 0 0 15px
+}
+
+.sectionBanner_secondCol-list-item::before {
+    color    : #d62424;
+    content  : "•";
+    display  : block;
+    font-size: 25px;
+    margin   : 0 5px 0 0
+}
+
+.sectionBanner_secondCol-list-item:last-child {
+    margin: 0
+}
+
+.sectionCounter {
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box;
+    font-family       : PF DinDisplay Pro, sans-serif;
+    background-size   : 50%;
+    padding           : 50px 0
+}
+
+.sectionCounter * {
+    -webkit-box-sizing: border-box;
+    box-sizing        : border-box
+}
+
+.sectionCounter .sectionInner {
+    display              : -webkit-box;
+    display              : -ms-flexbox;
+    display              : flex;
+    -webkit-box-orient   : horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction   : row;
+    flex-direction       : row;
+    -webkit-box-align    : center;
+    -ms-flex-align       : center;
+    align-items          : center;
+    -webkit-box-pack     : justify;
+    -ms-flex-pack        : justify;
+    justify-content      : space-between;
+    height               : 300px
+}
+
+.sectionCounter_firstCol {
+    width                : 65%;
+    height               : 100%;
+    display              : -webkit-box;
+    display              : -ms-flexbox;
+    display              : flex;
+    -webkit-box-orient   : vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction   : column;
+    flex-direction       : column;
+    -webkit-box-align    : start;
+    -ms-flex-align       : start;
+    align-items          : flex-start;
+    -webkit-box-pack     : justify;
+    -ms-flex-pack        : justify;
+    justify-content      : space-between
+}
+
+.sectionCounter_firstCol-title {
+    font-style    : normal;
+    font-weight   : 700;
+    font-size     : 35px;
+    line-height   : 50px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color         : #212129;
+    margin        : 0;
+    padding       : 0
+}
+
+.sectionCounter_firstCol .timer {
+    width: 100%
+}
+
+.sectionCounter_firstCol .timer__items {
+    width           : 100%;
+    font-size       : 48px;
+    display         : -webkit-box;
+    display         : -ms-flexbox;
+    display         : flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack   : justify;
+    justify-content : space-between
+}
+
+.sectionCounter_firstCol .timer__item {
+    position      : relative;
+    min-width     : 60px;
+    margin-left   : 10px;
+    margin-right  : 10px;
+    padding-bottom: 15px;
+    text-align    : center;
+    color         : #d62424;
+    font-size     : 96px
+}
+
+.sectionCounter_firstCol .timer__item::before {
+    content          : attr(data-title);
+    color            : #000;
+    display          : block;
+    position         : absolute;
+    left             : calc(50% - 30px);
+    bottom           : 0;
+    -webkit-transform: translateX(-50%);
+    -ms-transform    : translateX(-50%);
+    transform        : translateX(-50%);
+    font-size        : 20px
+}
+
+.sectionCounter_firstCol .timer__item:not(:last-child)::after {
+    content: ":";
+    margin : 0 0 0 30px
+}
+
+.sectionCounter_secondCol {
+    width                : 35%;
+    height               : 100%;
+    display              : -webkit-box;
+    display              : -ms-flexbox;
+    display              : flex;
+    -webkit-box-orient   : vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction   : column;
+    flex-direction       : column;
+    -webkit-box-align    : end;
+    -ms-flex-align       : end;
+    align-items          : flex-end;
+    -webkit-box-pack     : justify;
+    -ms-flex-pack        : justify;
+    justify-content      : space-between
+}
+
+.sectionCounter_secondCol-title {
+    font-style    : normal;
+    font-weight   : 700;
+    font-size     : 20px;
+    line-height   : 50px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color         : #212129;
+    padding       : 0;
+    margin        : 0
+}
+
+.sectionCounter_secondCol-btn {
+    width : 300px;
+    height: 62px
+}
+@media screen and (max-width:1170px) {
+    .sectionInner {
+        padding: 0 15px
+    }
+}
+
+@media screen and (max-width:992px) {
+
+    .sectionCounter_firstCol,
+    .sectionCounter_secondCol {
+        width: 50%
+    }
+
+    .sectionCounter_firstCol .timer__item {
+        font-size: 60px
+    }
+
+    .sectionCounter_firstCol .timer__item:not(:last-child)::after {
+        margin: 0
+    }
+
+    .sectionCounter_firstCol .timer__item::before {
+        left: 50%
+    }
+}
+
+@media screen and (max-width:768px) {
+    .sectionBanner .sectionInner {
+        -webkit-box-orient   : vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction   : column;
+        flex-direction       : column
+    }
+
+    .sectionBanner_firstCol,
+    .sectionBanner_secondCol {
+        width  : 100%;
+        padding: 0
+    }
+
+    .sectionBanner_firstCol-title {
+        line-height: 40px
+    }
+
+    .sectionBanner_firstCol {
+        margin: 0 0 20px
+    }
+
+    .sectionCounter .sectionInner {
+        -webkit-box-orient   : vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction   : column;
+        flex-direction       : column;
+        height               : auto
+    }
+
+    .sectionCounter_firstCol,
+    .sectionCounter_secondCol {
+        width  : 100%;
+        padding: 0
+    }
+
+    .sectionCounter_firstCol {
+        margin: 0 0 20px
+    }
+
+    .sectionCounter_secondCol {
+        -webkit-box-align: center;
+        -ms-flex-align   : center;
+        align-items      : center
+    }
+
+    .sectionCounter_firstCol .timer__item:not(:last-child)::after {
+        margin: 0 0 0 30px
+    }
+
+    .sectionCounter_firstCol .timer__item::before {
+        left: calc(50% - 30px)
+    }
+
+    .sectionBanner_firstCol-btn,
+    .sectionCounter_secondCol-btn {
+        width: 100%
+    }
+}
+
+@media screen and (max-width:576px) {
+    .sectionCounter_firstCol .timer__item:not(:last-child)::after {
+        margin: 0
+    }
+
+    .sectionCounter_firstCol .timer__item {
+        font-size: 35px;
+        max-width: 64px;
+        width    : 64px;
+        margin   : 0
+    }
+
+    .sectionCounter_firstCol .timer__item::before {
+        left: 50%
+    }
+
+    .sectionCounter_firstCol-title {
+        margin: 0 0 20px
+    }
+
+    .sectionCounter_secondCol-title {
+        text-align : center;
+        line-height: 25px;
+        margin     : 0 0 20px
+    }
+}
+
+      </style>
+
+    <section class="sectionBanner">
+        <div class='sectionInner'>
+          <div class="sectionBanner_firstCol">
+            <h5 class="sectionBanner_firstCol-subtitle">спецпредложение аПРЕЛЬ 2022</h5>
+            <h3 class="sectionBanner_firstCol-title">Получи выгоду до 150 000₽ на haval f7 и f7x <br>и до 220 000₽ на haval jolion</h3>
+            <button class="sectionBanner_firstCol-btn btn">Получить предложение</button>
+          </div>
+          <div class="sectionBanner_secondCol">
+            <div class="listWrap">
+
+              <ul class="sectionBanner_secondCol-list">
+                <li class="sectionBanner_secondCol-list-item">Рассрочка 0%</li>
+                <li class="sectionBanner_secondCol-list-item">Бонусы при покупке в кредит</li>
+                <li class="sectionBanner_secondCol-list-item">Дополнительное оборудование в подарок</li>
+                <li class="sectionBanner_secondCol-list-item">Бонусы при покупке в Трейд-ин</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </section>
+    
+    <section class="sectionCounter">
+        <div class='sectionInner'>
+          <div class="sectionCounter_firstCol">
+            <h3 class="sectionCounter_firstCol-title">17 авто по сниженной ценетолько в эту ночь продаж</h3>
+            <div class="timer">
+              <div class="timer__items">
+                <div class="timer__item timer__days">00</div>
+                <div class="timer__item timer__hours">00</div>
+                <div class="timer__item timer__minutes">00</div>
+                <div class="timer__item timer__seconds">00</div>
+              </div>
+            </div>
+          </div>
+          <div class="sectionCounter_secondCol">
+            <h4 class="sectionCounter_secondCol-title">Предложение <span class="red"> ограничено</span></h4>
+            <button class="sectionCounter_secondCol-btn btn">оставить заявку</button>
+          </div>
+        </div>
+    </section>
+
+
+   <script src="js/index.js"></script>
+  </body>
+</html>

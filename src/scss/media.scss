@@ -1,0 +1,89 @@
+  $xs: 0;
+  $sm: '576px';
+  $md: '768px';
+  $lg: '992px';
+  $xl: '1200px';
+  $xxl: '1400px';
+@media screen and (max-width: 1170px) {
+    .sectionInner{
+        padding: 0 15px;
+    }
+}
+@media screen and (max-width: $lg) {
+    .sectionCounter_firstCol,
+    .sectionCounter_secondCol{
+        width: 50%;
+    }  
+    .sectionCounter_firstCol .timer__item{
+        font-size: 60px;
+    }
+    .sectionCounter_firstCol .timer__item:not(:last-child)::after{
+        margin: 0 0 0 15px;
+    }
+    .sectionCounter_firstCol .timer__item::before{
+        left: calc(50% - 15px);
+    }
+}
+@media screen and (max-width: $md) {
+    .sectionBanner .sectionInner{
+        flex-direction: column;
+    }
+        .sectionBanner_firstCol,
+        .sectionBanner_secondCol{
+            width: 100%;
+            padding: 0;
+        }  
+        .sectionBanner_firstCol-title{
+            line-height: 40px;
+        }
+        .sectionBanner_firstCol{
+            margin: 0 0 20px 0;
+        }
+    .sectionCounter .sectionInner{
+        flex-direction: column;
+        height: auto;
+    }
+        .sectionCounter_firstCol,
+        .sectionCounter_secondCol{
+            width: 100%;
+            padding: 0;
+        }  
+        .sectionCounter_firstCol{
+            margin: 0 0 20px 0;
+        }
+        .sectionCounter_secondCol{
+            align-items: center;
+        }
+        .sectionCounter_firstCol .timer__item:not(:last-child)::after{
+            margin: 0 0 0 30px
+        }
+        .sectionCounter_firstCol .timer__item::before{
+            left: calc(50% - 30px);
+        }
+        .sectionBanner_firstCol-btn,
+        .sectionCounter_secondCol-btn{
+            width: 100%;
+        }
+}
+@media screen and (max-width: $sm) {
+    .sectionCounter_firstCol .timer__item:not(:last-child)::after{
+        margin: 0
+    }
+    .sectionCounter_firstCol .timer__item {
+        font-size: 35px;
+        max-width: 64px;
+        width: 64px;
+        margin: 0 0 0 15px;
+    }
+    .sectionCounter_firstCol .timer__item::before {
+        left: calc(50% - 15px);
+    }
+    .sectionCounter_firstCol-title{
+        margin: 0 0 20px 0;
+    }
+    .sectionCounter_secondCol-title{
+        text-align: center;
+        line-height: 25px;
+        margin: 0 0 20px 0;
+    }
+}
